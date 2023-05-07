@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- <!DOCTYPE branch SYSTEM "branch.dtd"> -->
+<!DOCTYPE branch [
+
+<!ELEMENT branch (item+)>
+<!ELEMENT item (address, contact, openingHours)>
+<!ELEMENT openingHours (weekday, weekend)>
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT contact (#PCDATA)>
+<!ELEMENT weekday (#PCDATA)>
+<!ELEMENT weekend (#PCDATA)>
+
+]>
+<branch>
+  <item>
+    <address>76 Devonshire St, Surry Hills NSW</address>
+    <map>https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.1438197215793!2d151.20556251509447!3d-33.88594968065153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae21aea44cd5%3A0xcf2d54666d7cca73!2s76%20Devonshire%20St%2C%20Surry%20Hills%20NSW%202010!5e0!3m2!1sen!2sau!4v1635092152224!5m2!1sen!2sau</map>
+    <contact>02 9211 1234</contact>
+    <openingHours>
+      <weekday>Mon - Fri: 6:00 to 14:30</weekday>
+      <weekend>Sat-Sun: 7:00 to 15:00</weekend>
+    </openingHours>
+  </item>
+  <item>
+    <address>451 Pitt St, Haymarket Sydney, NSW</address>
+    <map>https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.3893616700325!2d151.20458341509433!3d-33.879624780653245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae23192f282b%3A0x506728c0b18a4f49!2s451%20Pitt%20St%2C%20Sydney%20NSW%202000!5e0!3m2!1sen!2sau!4v1635093618791!5m2!1sen!2sau</map>
+    <contact>02 9262 5678</contact>
+    <openingHours>
+      <weekday>Mon - Fri: 6:00 to 16:00</weekday>
+      <weekend>Sat-Sun: 7:00 to 15:00</weekend>
+    </openingHours>
+  </item>
+  <item>
+    <address>31 Alfred Street, Circular Quay, NSW</address>
+    <map>https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.0660206077823!2d151.20871721509383!3d-33.86218938065817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae69daa2f96f%3A0x735f85193da40a66!2s31%20Alfred%20St%2C%20Sydney%20NSW%202000!5e0!3m2!1sen!2sau!4v1635093701755!5m2!1sen!2sau</map>
+    <contact>02 8971 9101</contact>
+    <openingHours>
+      <weekday>Mon - Fri: 6:00 to 16:00</weekday>
+      <weekend>Sat-Sun: 7:00 to 15:00</weekend>
+    </openingHours>
+  </item>
+</branch>

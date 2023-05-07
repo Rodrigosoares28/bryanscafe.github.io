@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+<title>Bryan's Café</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="bryanCafe.js"></script>
+</head>
+<body>
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="#about.html" class="w3-bar-item w3-button"><b>Bryan’s</b>Café</a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="about.html" class="w3-bar-item w3-button">About</a>
+      <a href="menu.html" class="w3-bar-item w3-button">Menu</a>
+      <a href="contact.html" class="w3-bar-item w3-button">Contact</a>
+    </div>
+  </div>
+</div>
+
+  <!-- Contact Section -->
+  <div class="w3-container w3-padding-32" id="contact">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
+    <p></p>
+    <form action="/action_page.php" target="_blank">
+      <input class="w3-input w3-border" type="text" placeholder="First Name" required name="First Name">
+      <input class="w3-input w3-section w3-border" type="text" placeholder="Last Name" required name="Last Name">
+      <input class="w3-input w3-section w3-border" type="text" placeholder="Email" required name="Subject">
+      <input class="w3-input w3-section w3-border" type="text" placeholder="Message Subject" required name="Comment">
+      <input class="w3-input w3-section w3-border" type="text" placeholder="Message Body" required name="Comment">
+      <button class="w3-button w3-black w3-section" type="submit">
+        <i class="fa fa-paper-plane"></i> Submit
+      </button>
+    </form>
+  </div>
+  
+
+
+<div class="container branches col-md-8 my-5">
+        <h3 class="text-center">Branches</h3>
+       <div class="column">
+    <h2></h2>
+  <ul class="b">
+  <li>Address: 76 Devonshire St, Surry Hills NSW</li>
+  <li>Contact: 02 9211 1234</li>
+  <li>Opening hours: Mon - Fri: 6:00 to 14:30|Sat-Sun: 7:00 to 15:00</li>
+</ul>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.1438197215793!2d151.20556251509447!3d-33.88594968065153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae21aea44cd5%3A0xcf2d54666d7cca73!2s76%20Devonshire%20St%2C%20Surry%20Hills%20NSW%202010!5e0!3m2!1sen!2sau!4v1635092152224!5m2!1sen!2sau"></iframe>
+  </div>
+</div>
+<ul class="b">
+  <li>Address: 451 Pitt St, Haymarket Sydney, NSW</li>
+  <li>Contact: 02 9262 5678</li>
+  <li>Opening hours: Mon - Fri: 6:00 to 16:00|Sat-Sun: 7:00 to 15:00</li>
+</ul>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.3893616700325!2d151.20458341509433!3d-33.879624780653245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae23192f282b%3A0x506728c0b18a4f49!2s451%20Pitt%20St%2C%20Sydney%20NSW%202000!5e0!3m2!1sen!2sau!4v1635093618791!5m2!1sen!2sau"></iframe>
+  </div>
+</div>
+<ul class="b">
+  <li>Address: 31 Alfred Street, Circular Quay, NSW</li>
+  <li>Contact: 02 8971 9101</li>
+  <li>Opening hours: Mon - Fri: 6:00 to 16:00|Sat-Sun: 7:00 to 15:00</li>
+</ul>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.0660206077823!2d151.20871721509383!3d-33.86218938065817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae69daa2f96f%3A0x735f85193da40a66!2s31%20Alfred%20St%2C%20Sydney%20NSW%202000!5e0!3m2!1sen!2sau!4v1635093701755!5m2!1sen!2sau"></iframe>
+  </div>
+</div>
+      </div><!-- <div class="container branches"> -->
+
+    </main>
+
+   
+    <script type="text/javascript">
+      //BEGIN: PROCESS BRANCHES
+      let branchesContainer = document.querySelector(".branches");
+      let xmlDoc = ajaxGetXMLDocument("xml/branch/branch.xml");
+      let itemsInBranch = xmlDoc.querySelectorAll("branch > item");
+
+      for(index = 0; index < itemsInBranch.length; index++)
+      {
+        branchesContainer.appendChild(addBranch(itemsInBranch[index].querySelector("address").textContent
+                                      ,itemsInBranch[index].querySelector("map").textContent
+                                      ,itemsInBranch[index].querySelector("contact").textContent
+                                      ,itemsInBranch[index].querySelector("openingHours").querySelector("weekday").textContent
+                                      ,itemsInBranch[index].querySelector("openingHours").querySelector("weekend").textContent
+                                      ));
+      }
+      //END: PROCESS BRANCHES
+      document.querySelector("#currentYear").textContent = getCurrentYear();
+    </script>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+
+
+<!-- Footer -->
+ <footer class="w3-center w3-black w3-padding-16">
+  <p>Bryan's Café <a href="privacypolicy.html"_blank" class="w3-hover-text-green">Privacy Policy</a></p>
+</footer>
+
+</body>
+</html>
